@@ -7,15 +7,10 @@ import java.util.List;
 
 public class Main {
 
-    public static Comparator<Employee> sortByName = new Comparator<Employee>() {
-        @Override
-        public int compare(Employee o1, Employee o2) {
-            return o1.getName().compareTo(o2.getName());
-        }
-    };
+    public static Comparator<Employee> sortByName = Comparator.comparing(Employee::getName);
 
     // Lambda function
-    public static Comparator<Employee> sortBySalary = (o1, o2) -> (int) (o1.getSalary() - o2.getSalary());
+    public static Comparator<Employee> sortBySalary = Comparator.comparing(Employee::getSalary);
 
 
     public static void main(String[] args) {
@@ -48,8 +43,8 @@ public class Main {
             System.out.println(emp.toString());
         }*/
 
-        employeeList.forEach(employee -> System.out.println(employee.toString()));
-        employeeList.stream().sorted(sortBySalary).forEach(employee -> System.out.println(employee.toString()));
+        //employeeList.forEach(employee -> System.out.println(employee.toString()));
+        employeeList.stream().sorted(sortBySalary.reversed()).forEach(employee -> System.out.println(employee.toString()));
 
     }
 }
