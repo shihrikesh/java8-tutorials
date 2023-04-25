@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class MapExample {
 
     public static void main(String[] args) {
-        List<String> words = Arrays.asList("hello", "i am java developer", "stram Java 8");
+        List<String> words = Arrays.asList("hello", "i am java developer", "stream Java 8");
         List<Integer> wordCount = words.stream()
                 .map(String::length)
                 .collect(Collectors.toList());
