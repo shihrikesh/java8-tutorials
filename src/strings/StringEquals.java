@@ -14,5 +14,16 @@ public class StringEquals {
         StringBuffer buffer1= new StringBuffer ("java");
         StringBuffer buffer2 = new StringBuffer ("java");
         System.out.println(buffer1.equals(buffer2));
+
+        String name = "hrishi";
+        saveAccountData(name);
+    }
+
+    public static void saveAccountData(String accountName){
+        // accountName variable is assigned to "hrishi" in memory
+        // now this would not be changed by anyone bcos string are immutable
+        // some validation
+
+        //account saving
     }
 }
