@@ -14,6 +14,8 @@ public class StringEquals {
         StringBuffer buffer1= new StringBuffer ("java");
         StringBuffer buffer2 = new StringBuffer ("java");
         System.out.println(buffer1.equals(buffer2));
+        System.out.println(" equals method checking object Type");
+        System.out.println(s2.equals(builder2));
 
         String name = "hrishi";
         saveAccountData(name);
