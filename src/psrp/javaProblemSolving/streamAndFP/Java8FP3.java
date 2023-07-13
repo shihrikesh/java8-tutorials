@@ -1,5 +1,7 @@
 package psrp.javaProblemSolving.streamAndFP;
 
+import java.util.Arrays;
+
 public class Java8FP3 {
 
     public static void main(String[] args) {

@@ -1,8 +1,8 @@
 package psrp.javaProblemSolving.oops;
 
 interface HasVocalCords {
- public abstract void makeSound();
+ public abstract void makeSound() throws RuntimeException;
  }
- public interface CanBark extends HasVocalCords {
+ public interface CanBark {
  public void bark();
  }

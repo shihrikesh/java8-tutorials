@@ -30,6 +30,13 @@ public class Task2 {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
         countVowels.forEach((k, v) -> System.out.println(" key " + k + " length " + v));
+
+        // check if word contains vowels or not
+        Arrays.stream(input.split(" "))
+                .filter(str-> str.replaceAll("[^aeiouAEIOU]", "").length() >=2)
+                .forEach(System.out::println);
+
+        System.out.println("hello".replaceAll("[aeiouAEIOU]", ""));
     }
 
     public static long countVowels(String s) {

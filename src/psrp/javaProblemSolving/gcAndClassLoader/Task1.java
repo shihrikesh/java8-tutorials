@@ -1,5 +1,7 @@
 package psrp.javaProblemSolving.gcAndClassLoader;
 
+import java.util.Arrays;
+
 public class Task1 {
 
     public static void main(String[] args) {
@@ -7,7 +9,9 @@ public class Task1 {
         //
         //Input Array is: {15, 10, 16, 20, 8, 9, 7, 50}
 
-        int [] array = {15, 10, 16, 20, 8, 9, 7, 50};
+        //int [] array = {15, 10, 16, 20, 8, 9, 7, 50};
+        int [] array = {105, 10, 16, 20, 8, 9, 7, 50};
+        Arrays.sort(array);
         int arraySize = array.length;
         int lastIndex = arraySize-1;
         for(int i=0;i<arraySize;i++){
