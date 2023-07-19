@@ -8,7 +8,7 @@ public class FunctionalTesting {
      *
      * Functional Interface in JAVA 8
      * Predicate test()
-     * Function
+     * Function apply()
      * Consumer accept()
      * Producer get()
      * @param args

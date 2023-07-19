@@ -116,7 +116,7 @@ public class Employee {
 
     double salary;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, NoSuchFieldException {
         List<Employee> employeeList = new ArrayList<>();
 
         employeeList.add(new Employee(111, "Jiya Brein", 32, "Female", "HR", 2011, 25000.0));
@@ -136,6 +136,7 @@ public class Employee {
         employeeList.add(new Employee(255, "Ali Baig", 23, "Male", "Infrastructure", 2018, 12700.0));
         employeeList.add(new Employee(266, "Sanvi Pandey", 26, "Female", "Product Development", 2015, 28900.0));
         employeeList.add(new Employee(277, "Anuj Chettiar", 31, "Male", "Product Development", 2012, 35700.0));
+        employeeList.add(new Employee(278, "Gunja Bansi", 31, "Female", "Product Development", 2012, 35700.0));
 
         /* groupingBy(Function, Collector),
         groupingBy(Function),
@@ -365,6 +366,56 @@ public class Employee {
         System.out.println(" Oldest Employee: " + employeeDetails);
         System.out.println(" Age: " + employeeDetails.map(Employee::getAge).orElse(0));
         System.out.println(" Department: " + employeeDetails.map(Employee::getDepartment).orElse("No Department"));
+        System.out.println("********* END *********");
+
+        // 19 Find Employee with n'th higest salary
+        System.out.println(" Employee with n'th Highest Salary ");
+
+        System.out.println("********* START *********");
+
+        /*employeeList.stream()
+                .sorted(Comparator.comparingDouble(Employee::getSalary).reversed())
+                //.limit(2)
+                //.skip(0)
+                .collect(Collectors.toList()).forEach(System.out::println);*/
+
+        System.out.println(" Grouping and mapping , which collects name into list" +
+                "Key is grouping key an value output of mapping");
+
+        System.out.println(employeeList.stream()
+                .collect(Collectors.groupingBy(Employee::getSalary
+                        //, Collectors.mapping(Employee::getName, Collectors.toList())
+                ))
+                .entrySet()
+                .stream()
+                .sorted(Collections.reverseOrder(Map.Entry.comparingByKey()))
+                .findFirst()
+                .orElseThrow(NoSuchFieldException::new));
+        //.collect(Collectors.toList()).get(0));
+
+        System.out.println(employeeList.stream()
+                .collect(Collectors.groupingBy(Employee::getSalary
+                        , Collectors.mapping(Employee::getName, Collectors.toList())))
+                .entrySet()
+                .stream()
+                .max(Map.Entry.comparingByKey())
+                .orElseThrow(NoSuchFieldException::new));
+
+        System.out.println(" Group by salary and value as Whole Object, print name in upper case ");
+
+        System.out.println(employeeList.stream()
+                .collect(Collectors.groupingBy(Employee::getSalary))//, TreeMap::new, Collectors.toList()))
+                .entrySet()
+                .stream()
+                .sorted(Collections.reverseOrder(Map.Entry.comparingByKey()))
+                .map(map -> map.getValue().stream()
+                        .map(employee -> new Employee(employee.id, employee.name.toUpperCase()
+                                , employee.age, employee.gender, employee.department
+                                , employee.yearOfJoining, employee.salary)).collect(Collectors.toList()))
+                .collect(Collectors.toList())
+                .get(1)
+        );
+
         System.out.println("********* END *********");
 
     }

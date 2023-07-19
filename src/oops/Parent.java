@@ -2,7 +2,7 @@ package oops;
 
 public interface Parent {
 
-    void get();
+    Number get();
 
     public static void display() {
         System.out.println("Parent Static Method");

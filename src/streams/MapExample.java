@@ -1,7 +1,5 @@
 package streams;
 
-import com.sun.webkit.dom.HTMLOptionsCollectionImpl;
-
 import java.util.*;
 import java.util.stream.Collectors;
 

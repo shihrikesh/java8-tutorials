@@ -76,9 +76,10 @@ public class MapImplementation {
         concurrentHashMap.put(3, "ankit");
         concurrentHashMap.put(970, "ankit");
         concurrentHashMap.put(700, "ankit");
-        // uncomment below and see null pointer, find why tree map dont allow null
+        // uncomment below and see null pointer, find why concurrent map dont allow null
         // comparator in TreeMap, comparable does not permit null key, uses natural ordering
-        // treeMap.put(null, "manoj");
+        //concurrentHashMap.put(745, null);
+        //concurrentHashMap.put(null, "value");
 
         System.out.println(" ConcurrentHashMap implementation ");
         concurrentHashMap.forEach((k,v)-> System.out.println("key is "+ k + " value is " + v));

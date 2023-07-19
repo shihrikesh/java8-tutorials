@@ -1,4 +1,4 @@
-package swissre;
+package interview.swissre;
 
 import java.util.Objects;
 
