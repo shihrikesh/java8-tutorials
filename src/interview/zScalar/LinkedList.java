@@ -20,13 +20,13 @@ class NodeOperation {
     }
 }
 
-public class LinkedListMid {
+public class LinkedList {
 
     public static void main(String[] args) {
         // Find middle of Linked List
         Node [] headNode = new Node[1];
         NodeOperation nodeOperation = new NodeOperation();
-        for(int i=1;i<=5;i++){
+        for(int i=1;i<=6;i++){
             nodeOperation.addNode(headNode, i);
         }
 
@@ -36,6 +36,16 @@ public class LinkedListMid {
             // assign head to new current pointer
             curr = curr.next;
         }
+
+        // find mid of Linked List
+
+        Node slowPointer= headNode[0];
+        Node fastPointer=headNode[0];
+        while (fastPointer !=null && fastPointer.next !=null){
+            slowPointer=slowPointer.next;
+            fastPointer = fastPointer.next.next;
+        }
+        System.out.println(" Middle pointer is " +slowPointer.value);
     }
 
 }

@@ -22,6 +22,7 @@ public class Problem {
         list.stream()
                 .filter(a-> !set.add(a)).toList()
                 .forEach(System.out::println);
-        //set.forEach(System.out::println);
+        //set.forEach(System.out::println
+        // );
     }
 }
