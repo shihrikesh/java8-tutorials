@@ -36,5 +36,14 @@ public class ListPractice {
         fruitsList.add("PineApple");
 
         fruitsList.forEach(System.out::println);
+
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        for (int i : list) {
+            list.remove(i);
+        }
+        System.out.println(list.size());
     }
 }
