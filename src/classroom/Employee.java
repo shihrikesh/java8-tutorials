@@ -174,7 +174,7 @@ public class Employee {
                 .stream()
                 .map(Employee::getDepartment)
                 .distinct()
-                .collect(Collectors.toList());
+                .toList();
         allDepartmentList.forEach(System.out::println);
         System.out.println("********* END *********");
 
@@ -185,7 +185,7 @@ public class Employee {
         List<Employee> sortByEmployeeSalary = employeeList
                 .stream()
                 .sorted(Comparator.comparing(Employee::getSalary))
-                .collect(Collectors.toList());
+                .toList();
 
         sortByEmployeeSalary.forEach(System.out::println);
         System.out.println("********* END *********");
@@ -415,6 +415,34 @@ public class Employee {
                 .collect(Collectors.toList())
                 .get(1)
         );
+
+        System.out.println("********* END *********");
+
+
+        // Employee with salary greather than thrashhold salary
+
+        System.out.println("********* START *********");
+
+        System.out.println(" Employee Salary after certain threshHold ");
+        double salaryThreshHold = 25000;
+        Set<Employee> empWithSalaryAfterThreshHold = employeeList.stream()
+                .filter(emp-> emp.getSalary() > salaryThreshHold)
+                .collect(Collectors.toSet());
+
+        empWithSalaryAfterThreshHold.forEach(System.out::println);
+
+        System.out.println("********* END *********");
+
+        // Avg salary after certain thrashhold salary
+
+        System.out.println("********* START *********");
+
+        System.out.println(" Avg Salary after certain threshHold ");
+        double avgSalary = employeeList.stream()
+                .filter(emp-> emp.getSalary() <salaryThreshHold)
+                .collect(Collectors.averagingDouble(Employee::getSalary));
+
+        System.out.println(avgSalary);
 
         System.out.println("********* END *********");
 
