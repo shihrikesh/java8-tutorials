@@ -19,10 +19,7 @@ public class OrderTester {
      * ✅ Solution:
      * Using a combination of filter, flatMap, groupingBy, and sorting via streams, the code provides a concise way to compute the required report using LinkedHashMap to maintain sorted order.
      *
-     * 2️⃣ Detect Orders with Stock Issues
-     * While processing orders, you must identify which orders exceed the available stock for any product:
-     *
-     * You have a Map String, Integer  representing the available stock per product.
+     * https://www.youtube.com/watch?v=lm3rgUM1tDk
      * @param args
      */
     public static void main(String[] args) {
@@ -55,7 +52,7 @@ public class OrderTester {
         Order order5 = new Order(5,
                 List.of(new Product(1,"Protein Bar", "Food",2,true,400)),
                 1200,
-                LocalDateTime.now().minusDays(2));
+                LocalDateTime.now().minusHours(5));
 
         List<Order> orderList = List.of(order1,order2,order3,order4,order5);
 
@@ -70,7 +67,8 @@ public class OrderTester {
                 //.forEach((k,v)-> System.out.println("key:"+k+" value: "+v));
                 .entrySet().stream()
                 .sorted(Map.Entry.comparingByValue(Collections.reverseOrder()))
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,(oldValue,newValue)-> oldValue ,LinkedHashMap::new));
+                //linked list, as to save order in which we compare values
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,(oldValue,newValue)-> oldValue, LinkedHashMap::new));
 
         System.out.println(map);
 
