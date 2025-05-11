@@ -3,13 +3,13 @@ package multithreading.threads;
 public class ThreadC {
 
     /**
-     *  Race condition, below code will provide inconsitent result ,
+     *  Race condition, below code will provide inconsistent result ,
      *  since shared resource would be changes quickly by other threads
      *
      *  solution using synchronized method
      *
      *  but it has draw back, as method will be locked until on thread oes not releases
-     *  all synchronised method wwill be blocked if any one is called
+     *  all synchronized method will be blocked if any one is called
      *   method and calling parent method would also need to be synchronized
      *
      *  solution is to have synchronized block of code

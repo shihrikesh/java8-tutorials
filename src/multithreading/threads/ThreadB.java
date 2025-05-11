@@ -2,7 +2,7 @@ package multithreading.threads;
 
 public class ThreadB {
 
-    /**]
+    /**
      * Running Demon thread and user thread, to see,
      * JVM terminate daemon thread after no program remains to run
      * @param args
