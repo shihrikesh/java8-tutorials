@@ -1,5 +1,9 @@
 package strings;
 
+import java.util.Arrays;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 public class StringEquals {
     public static void main(String[] args) {
 
@@ -19,6 +23,11 @@ public class StringEquals {
 
         String name = "hrishi";
         saveAccountData(name);
+
+
+        String company = "tataconsultency";
+        System.out.println(Arrays.stream(company.split(""))
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())));
     }
 
     public static void saveAccountData(String accountName){
