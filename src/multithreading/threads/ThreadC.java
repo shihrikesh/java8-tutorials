@@ -17,7 +17,7 @@ public class ThreadC {
      */
     public static int counter=0;
     // using below for LOCK in synchronised block
-    public static final Object lock = new Object();
+    //public static final Object lock = new Object();
     public static void main(String[] args) throws InterruptedException {
         Runnable run1 = ()->{
           for(int i=0;i<10000;i++){
@@ -45,15 +45,19 @@ public class ThreadC {
         System.out.println("counter " + counter);
     }
 
-    /*public static synchronized void increment(){
+    // intrinsic lock on whole class instance
+    // this lead to other synchronised method in same class can not be access by any other thread
+    // until lock is releases
+    //
+    public static synchronized void increment(){
         counter++;
-    }*/
+    }
 
     // better approach
-    public static void increment(){
+    /*public static void increment(){
         synchronized(lock) {
             counter++;
         }
 
-    }
+    }*/
 }
