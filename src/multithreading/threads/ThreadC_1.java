@@ -1,6 +1,6 @@
 package multithreading.threads;
 
-public class ThreadC {
+public class ThreadC_1 {
 
     /**
      *  Race condition, below code will provide inconsistent result ,
@@ -17,7 +17,7 @@ public class ThreadC {
      */
     public static int counter=0;
     // using below for LOCK in synchronised block
-    //public static final Object lock = new Object();
+    public static final Object lock = new Object();
     public static void main(String[] args) throws InterruptedException {
         Runnable run1 = ()->{
           for(int i=0;i<10000;i++){
@@ -45,19 +45,17 @@ public class ThreadC {
         System.out.println("counter " + counter);
     }
 
-    // intrinsic lock on whole class instance
-    // this lead to other synchronised method in same class can not be access by any other thread
-    // until lock is releases
-    //
-    public static synchronized void increment(){
+    /*public static synchronized void increment(){
         counter++;
-    }
+    }*/
 
     // better approach
-    /*public static void increment(){
+    // using custom object lock, only blocking few lines of code rather than whole method
+    // this way child class does not need to use synchronized keyword
+    public static void increment(){
         synchronized(lock) {
             counter++;
         }
 
-    }*/
+    }
 }

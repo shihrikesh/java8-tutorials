@@ -24,11 +24,12 @@ public class ThreadA {
         Thread task3 = new Thread(runnable);
 
         // comment join and see, first main thread would be called, then thrad1 and thread2 later
+        // main thread have highest priority
         task1.start();
-        task1.join();
+        task1.join();  // jvm prioritise thread over main thread
 
         task2.start();
-        task2.join();
+        task2.join(2000);
 
         //Runnable thread, running va passing into thread
         task3.start();
