@@ -41,8 +41,9 @@ public class ThreadB {
         // meaning this daemon thread will run until all program finish
         daemonThread.setDaemon(true);
 
-        daemonThread.start();
         userThread.start();
+        daemonThread.start();
+
 
     }
 
