@@ -22,5 +22,8 @@ public class SeqListSample {
         System.out.println(list);
         System.out.println(rList);
 
+        System.out.println(list.getFirst());
+        System.out.println(list.getLast());
+
     }
 }
