@@ -8,7 +8,7 @@ public class AyncFuture {
 
         try(var executor = Executors
                 .newFixedThreadPool(Runtime.getRuntime().availableProcessors())){
-            var future = executor.submit(()-> System.out.println("Hello, world"));
+            var future = executor.submit(()-> "Hello, world");
             Thread.sleep(100);
 
             var result= switch (future.state()){
