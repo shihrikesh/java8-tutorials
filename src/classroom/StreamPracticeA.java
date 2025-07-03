@@ -36,6 +36,12 @@ public class StreamPracticeA {
         Person[] pList2 = {new Person("David", 30), new Person("Eve", 25),
                 new Person("Alice", 25)};
 
+        System.out.println(" sort first");
+        System.out.println(Stream.concat(Arrays.stream(pList1), Arrays.stream(pList2))
+                .sorted(Comparator.comparingInt(Person::getAge)
+                        .thenComparing(Person::getName))
+                .toList());
+
         Stream.concat(Arrays.stream(pList1),Arrays.stream(pList2))
                 .sorted(Comparator.comparingInt(Person::getAge)
                         .thenComparing(Person::getName))
@@ -68,6 +74,11 @@ public class StreamPracticeA {
                 "It supports functional-style operations on streams",
                 "In this exercise, you need to count words"
         );
+
+        System.out.println(sentences.stream()
+                .map(x -> x.split(" "))
+                .flatMap(y -> Arrays.stream(y))
+                .collect(Collectors.toSet()));
 
         sentences.stream().map(x-> x.split(" "))
                 .flatMap(Arrays::stream)
@@ -103,6 +114,11 @@ public class StreamPracticeA {
         IntStream.concat(Arrays.stream(array1), Arrays.stream(array2)).boxed()
                 .sorted().filter(n-> n>threshold)
                 .toList().forEach(System.out::println);
+
+        System.out.println(IntStream.concat(Arrays.stream(array1), Arrays.stream(array2))
+                .boxed()
+                .sorted().filter(n -> n > threshold)
+                .toList());
 
         // Problem 11: Partition a list of numbers into two groups: prime and non-prime numbers.
 

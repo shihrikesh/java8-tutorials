@@ -1,8 +1,5 @@
 package multithreading.threads;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ThreadE {
 
     /**
@@ -10,8 +7,6 @@ public class ThreadE {
      *
      */
     // using below for LOCK in synchronised block
-    public static final Object LOCK = new Object();
-
 
     public static void main(String[] args) throws InterruptedException {
 

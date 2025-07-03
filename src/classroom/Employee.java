@@ -202,6 +202,12 @@ public class Employee {
 
         sortBySalaryAndGroupByDepartment
                 .forEach((k, v) -> System.out.println(k + " department having employees " + v));
+        System.out.println(" Before adding ");
+        System.out.println(sortBySalaryAndGroupByDepartment.get("HR"));
+        sortBySalaryAndGroupByDepartment.get("HR").add(new Employee(112, "Jiya Brein", 32, "Female", "HR", 2011, 25000.0));
+        System.out.println("After adding employee ");
+        System.out.println(sortBySalaryAndGroupByDepartment.get("HR"));
+
         System.out.println("********* END *********");
 
         // 6: Get the details of highest paid employee in the organization?

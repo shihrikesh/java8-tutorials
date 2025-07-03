@@ -44,7 +44,7 @@ public class ThreadD {
 
     public static void two() throws InterruptedException{
         synchronized(LOCK) {
-            System.out.println("Thread 2 after notify!!! ");
+            System.out.println("Thread 2 before notify!!! ");
             LOCK.notify();
             System.out.println("Thread 2 after notify!!! ");
         }

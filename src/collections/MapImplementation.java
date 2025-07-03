@@ -83,5 +83,21 @@ public class MapImplementation {
 
         System.out.println(" ConcurrentHashMap implementation ");
         concurrentHashMap.forEach((k,v)-> System.out.println("key is "+ k + " value is " + v));
+
+        ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
+        map.put("A", 1);
+        map.put("B", 2);
+        map.put("C", 3);
+
+        for (String key : map.keySet()) {
+            if (key.equals("B")) {
+                map.remove("B"); // Safe to remove during iteration
+            }
+            map.put("D", 4); // Safe to add during iteration
+            System.out.println(key + ": " + map.get(key));
+        }
+
+        map.forEach((k,v)-> System.out.println(k+" "+v));
+
     }
 }

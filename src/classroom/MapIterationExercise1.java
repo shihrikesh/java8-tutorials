@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class MapIterationExercise1 {
 
@@ -23,6 +22,8 @@ public class MapIterationExercise1 {
                 .filter(k-> Objects.equals(max, coursePrices.get(k))).toList().get(0);
 
         System.out.println("key is " + key + " value " + max);
+
+
     }
 
 }

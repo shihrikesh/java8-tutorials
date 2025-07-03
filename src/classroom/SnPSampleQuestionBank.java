@@ -2,6 +2,7 @@ package classroom;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class SnPSampleQuestionBank {
@@ -35,7 +36,9 @@ public class SnPSampleQuestionBank {
         integerList
                 .stream()
                 .collect(Collectors.groupingBy(i -> i / 10 * 10))
-                .forEach((k, v) -> System.out.println(k + " elements are " + v));
+                .entrySet().stream().sorted(Map.Entry.comparingByKey())
+                .toList().forEach(System.out::println);
+                //.forEach((k, v) -> System.out.println(k + " elements are " + v));
 
         System.out.println("********* END *********");
 
