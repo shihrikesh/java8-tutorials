@@ -10,6 +10,7 @@ public class Problem {
     Given the above split of shifts, provide an API/method to return the different shifts of a colleague for the day after merging contiguous shifts.
     This will be exposed to the colleague in different UI and help them plan their day accordingly.
 
+
     His shift timings in this case are 8 to 12 and 14 to 19.
     provide input for this API*/
 }
